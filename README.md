@@ -2,12 +2,6 @@
 
 Módulo Terraform para criação de bucket e objetos no S3.
 
-Por default a criação de objetos no bucket esta desabilitada, para ativa-la basta configurar no modulo a variável:
-
- ```
- create_object = true
- ```
-
   **Requisitos**
  - Terraform
  - AWS Account
