@@ -12,13 +12,25 @@ Módulo Terraform para criação de bucket e objetos no S3.
 **Exemplode Uso**
  ------
 ```
-module "bucket" {
-  source = "git@github.com:leandromoreirati/tf-module-s3.git"
+module "target_group" {
+  source = "../targetGroup"
 
-  name       = "${var.my_team}-${var.product}-${var.environment}"
+  name       = "tg-${var.my_team}-${var.product}-${var.environment}"
+  port     = "${var.port}"
+  protocol = "${var.protocol}"
+  vpc_id   = "${var.vpc_id}"
+  interval            = "${var.interval}"
+  healthy_threshold   = "${var.healthy_threshold}"
+  unhealthy_threshold = "${var.unhealthy_threshold}"
 
+  tags = {
+    "Name"           = "${var.my_team}-${var.product}-${var.environment}"
+    "Application"    = "${var.my_team}-${var.product}"
+    "Environment"    = "${var.environment}"
+    "Service_type"   = "${var.service_type}"
+    "Business_owner" = "${var.business_owner}"
+  }
 }
-
 ```
 
  **Variáveis**
