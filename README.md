@@ -1,15 +1,17 @@
-# **tf-module-target_group**
+![alt text](https://www.terraform.io/assets/images/logo-hashicorp-3f10732f.svg)
 
-Módulo Terraform para criação de bucket e objetos no S3.
+# **tf-module-target-group**
 
-  **Requisitos**
+Terraform module for target group creation.
+
+  **Requirements **
  - Terraform
  - AWS Account
   
-**Dependências**
+**Dependencies **
  - AWS Auto Scaling Group
 
-**Exemplode Uso**
+**Example of Use**
  ------
 ```
 module "target_group" {
@@ -32,16 +34,16 @@ module "target_group" {
 }
 ```
 
- **Variáveis**
+ **Variables**
  ------
- |        Nome        |                      Descrição                                    |  Default  |
- | ------------------ |-------------------------------------------------------------------|:---------:|
- | port               | Porta da aplicação                                                |    ""     |
- | protocol           | Protocolo usado pela aplicação                                    |    ""     |
- | vpc_id             | ID da VPC                                                         |    ""     |
- | interval           | Tempo entre as checages do health check                           |    30     |
- | healthy_threshold  | Número de verificações com sucesso.                               |     3     |
- | unhealthy_threshold| Número de falhas sucessivas ante de declarar o serviço nao integro|     3     |
+ |        Nome        |                      Descrição                                         |  Default  |
+ | ------------------ |------------------------------------------------------------------------|:---------:|
+ | port               | Application Port                                                       |    ""     |
+ | protocol           | Protocol used by the application                                       |    ""     |
+ | vpc_id             | VPC ID                                                                 |    ""     |
+ | interval           | Time between health check checks                                       |    30     |
+ | healthy_threshold  | Number of successful checks                                            |     3     |
+ | unhealthy_threshold| Number of successive failures before declaring the service not integral|     3     |
 
  **Outputs**
  ------
@@ -52,10 +54,10 @@ module "target_group" {
  | lb_target_group_name | aws_s3_bucket_object.bucket_object.*.id |
  | bucket_object_arn    | aws_lb_target_group.lb_target_group.name|
 
- **Documentação Externa**
+ **External Documentation**
  - [AWS Target Group](https://docs.aws.amazon.com/pt_br/elasticloadbalancing/latest/application/load-balancer-target-groups.html)
  - [Terraform Target Group](https://www.terraform.io/docs/providers/aws/r/lb_target_group.html)
 
- **Recursos Criados**
+ **Created Resources**
  ------
  - Target Group.
