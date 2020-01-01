@@ -17,7 +17,8 @@ Terraform module for target group creation.
 module "target_group" {
   source = "../targetGroup"
 
-  name       = "tg-${var.my_team}-${var.product}-${var.environment}"
+  name       = "RESOURCE_NAME"
+  
   port     = "${var.port}"
   protocol = "${var.protocol}"
   vpc_id   = "${var.vpc_id}"
